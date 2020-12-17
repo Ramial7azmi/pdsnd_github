@@ -153,15 +153,15 @@ def station_stats(df):
     # TO DO: display most commonly used start station, max ( count grouped by start station) - 1
     StartStation= df['Start Station'].sort_values().unique()
     dfCountStation = df.groupby(['Start Station']).count()[['Start Time']]
-    dfCountStationL=dfCountStation.values.tolist()
-    print("most common start Station is",StartStation[dfCountStationL.index(max(dfCountStationL))])
+    dfCountStationList=dfCountStation.values.tolist()
+    print("most common start Station is",StartStation[dfCountStationList.index(max(dfCountStationList))])
 
 
     # TO DO: display most commonly used end station, max ( count grouped by end station) - 2
     EndStation= df['End Station'].sort_values().unique()
     dfCountEndStation = df.groupby(['End Station']).count()[['Start Time']]
-    dfCountEndStationL=dfCountEndStation.values.tolist()
-    print("most common End Station is",EndStation[dfCountEndStationL.index(max(dfCountEndStationL))])
+    dfCountEndStationList=dfCountEndStation.values.tolist()
+    print("most common End Station is",EndStation[dfCountEndStationList.index(max(dfCountEndStationList))])
 
 
     # TO DO: display most frequent combination of start station and end station trip, max ( 1 & 2)
@@ -170,9 +170,9 @@ def station_stats(df):
     #dfEndStartStation = pd.DataFrame({'Start Station':EndStartStationL})
     EndStartStation= dfEndStartStation['Start Station'].sort_values().unique()
     dfCountEndStartStation = dfEndStartStation.groupby(['Start Station']).count()
-    dfCountEndStartStationL=dfCountEndStartStation.values.tolist()
+    dfCountEndStartStationList=dfCountEndStartStation.values.tolist()
     print("most common Start & End Station is",\
-          EndStartStation[dfCountEndStartStationL.index(max(dfCountEndStartStationL))])
+          EndStartStation[dfCountEndStartStationList.index(max(dfCountEndStartStationList))])
     
     
     print("\nThis took %s seconds." % (time.time() - start_time))
