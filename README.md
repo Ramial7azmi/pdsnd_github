@@ -1,15 +1,16 @@
 ### Date created
-Include the date you created this project and README file.
+This project was created in 17/12/2020
 
-### Project Title
-Replace the Project Title
+### Bike Usage Analysis
+
 
 ### Description
-Describe what your project is about and what it does
+The code interact with the user and provide him with insite on the data provided.
+The insite include common rental station, days, weeks, months of rent and gender.
 
 ### Files used
-Include the files used
+bikeshare.py analyize .csv files containing the data
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+This project is based on a course at Udacity, intro. to python.
 
