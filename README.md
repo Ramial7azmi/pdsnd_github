@@ -6,6 +6,7 @@ This project was created in 17/12/2020
 
 ### Description
 The code interact with the user and provide him with insite on the data provided.
+The data is about bike rentals details.
 The insite include common rental station, days, weeks, months of rent and gender.
 
 ### Files used
