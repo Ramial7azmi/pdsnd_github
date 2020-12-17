@@ -16,7 +16,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         city = input(' Enter a city (chicago, new york city, washington)\n')
         city = city.lower()
@@ -26,7 +26,7 @@ def get_filters():
             print('Error input!\n')
             continue
 
-    # TO DO: get user input for month (all, january, february, ... , june)
+    #  get user input for month (all, january, february, ... , june)
     while True:
         month = input(' Enter a month (all, january, february, ... , june)\n')
         month = month.lower()
@@ -38,7 +38,7 @@ def get_filters():
         else: 
             print('Error input!\n')
             continue
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    #  get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day = input(' Enter a day of week (all, monday, tuesday, ... sunday)\n')
         day = day.lower()
@@ -117,7 +117,7 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month, max( count grouped by month)
+    #  display the most common month, max( count grouped by month)
     dfCountMonth = df.groupby(['month']).count()[['Start Time']]
     dfCountMonthL=dfCountMonth.values.tolist()
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september',\
@@ -125,7 +125,7 @@ def time_stats(df):
     print("most common month is",months[dfCountMonthL.index(max(dfCountMonthL))])
 
 
-    # TO DO: display the most common day of week, max( count grouped by day of week)
+    #  display the most common day of week, max( count grouped by day of week)
     dayOfWeek = ['monday', 'tuesday', 'wendnsday', 'thursday', 'friday',\
                  'saturday', 'sunday']
     dfCountDay = df.groupby(['day_of_week']).count()[['Start Time']]
@@ -133,7 +133,7 @@ def time_stats(df):
     print("most common day of week is",dayOfWeek[dfCountDayL.index(max(dfCountDayL))])
 
 
-    # TO DO: display the most common start hour, max( count grouped by hours)
+    #  display the most common start hour, max( count grouped by hours)
     df['hour'] = df['Start Time'].dt.hour
     dfCountHour = df.groupby(['hour']).count()[['Start Time']]
     dfCountHourL=dfCountHour.values.tolist()
@@ -150,21 +150,21 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station, max ( count grouped by start station) - 1
+    #  display most commonly used start station, max ( count grouped by start station) - 1
     StartStation= df['Start Station'].sort_values().unique()
     dfCountStation = df.groupby(['Start Station']).count()[['Start Time']]
     dfCountStationL=dfCountStation.values.tolist()
     print("most common start Station is",StartStation[dfCountStationL.index(max(dfCountStationL))])
 
 
-    # TO DO: display most commonly used end station, max ( count grouped by end station) - 2
+    # display most commonly used end station, max ( count grouped by end station) - 2
     EndStation= df['End Station'].sort_values().unique()
     dfCountEndStation = df.groupby(['End Station']).count()[['Start Time']]
     dfCountEndStationL=dfCountEndStation.values.tolist()
     print("most common End Station is",EndStation[dfCountEndStationL.index(max(dfCountEndStationL))])
 
 
-    # TO DO: display most frequent combination of start station and end station trip, max ( 1 & 2)
+    #  display most frequent combination of start station and end station trip, max ( 1 & 2)
     dfEndStartStation =  df[['Start Station','Start Time']].append( df[['End Station','Start Time']].\
                                                                   rename(columns={'End Station': 'Start Station'}))
     #dfEndStartStation = pd.DataFrame({'Start Station':EndStartStationL})
@@ -185,10 +185,10 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time, sum of duration
+    #  display total travel time, sum of duration
     print("the sum of total duration is",df['Trip Duration'].sum() , "minutes")
 
-    # TO DO: display mean travel time, avr of duration
+    #  display mean travel time, avr of duration
     print("the mean duration is",df['Trip Duration'].mean() , "minutes")
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -201,16 +201,16 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types, group by user type
+    #  Display counts of user types, group by user type
     print("this is the counts of user type\n",df.groupby(['User Type']).count()[['Start Time']])
 
-    # TO DO: Display counts of gender, group by gender
+    #  Display counts of gender, group by gender
     try:
         print("\nthis is the counts of gender\n",df.groupby(['Gender']).count()[['Start Time']])
     except:
         print("\nNo gender Data!")
             
-    # TO DO: Display earliest, most recent, and most common year of birth, (min, max and group by year)
+    #  Display earliest, most recent, and most common year of birth, (min, max and group by year)
     try:
         YearBirth= df['Birth Year'].sort_values().unique()
         dfCountYearBirth = df.groupby(['Birth Year']).count()[['Start Time']]
